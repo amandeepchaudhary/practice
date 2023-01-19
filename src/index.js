@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App number={22} Name = "Aman"/> {/*Defining state here like we define useState of hooks in App.js*/}
   </React.StrictMode>
 );
 
