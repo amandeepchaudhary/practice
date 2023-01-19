@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 
 const Header = (props) =>{
     // const defa = props.firstName? props.firstName : "Enter First Name or Click on Click me";
@@ -19,6 +20,11 @@ const Header = (props) =>{
           </a>
         </>
     )
+}
+Header.propTypes = {
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string,
+    number: PropTypes.number
 }
 
 export default Header;
