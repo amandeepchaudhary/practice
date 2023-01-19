@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import Header from './components/header';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,15 +27,7 @@ class App extends React.Component {
           <p>
             Edit <code>src/App.js</code> and save to reload {this.props.Name} {this.props.number}.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>{this.state.firstName}</span>
-            <span>{this.state.lastName}</span>
-          </a>
+          <Header firstName={this.state.firstName} lastName={this.state.lastName}/>
         </header>
       </div>
     );
