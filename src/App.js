@@ -17,6 +17,14 @@ class App extends React.Component {
     this.setState({ firstName: "Aman", lastName: "Chaudhary" })
   }
 
+  onChange = (e) =>{
+    const tempState = this.state;
+
+    tempState[e.target.name] = e.target.value
+    this.setState(tempState)
+
+  }
+
   render() {
 
     return (
@@ -27,6 +35,13 @@ class App extends React.Component {
           <p>
             Edit <code>src/App.js</code> and save to reload {this.props.Name} {this.props.number}.
           </p>
+          <div className="row">
+            <div className="col md-6">
+              <input type="text" onChange={(e) => this.onChange(e)} id="firstName" name="firstName" placeholder='Enter your first name' />
+              <input type="text" onChange={(e) => this.onChange(e)} id="lastName" name="lastName" placeholder='Enter your last name' />
+              <button type="submit" >Submit</button>
+            </div>
+          </div>
           <Header firstName={this.state.firstName} lastName={this.state.lastName}/>
         </header>
       </div>
