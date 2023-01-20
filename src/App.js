@@ -9,12 +9,13 @@ class App extends React.Component {
 
     this.state = {
       firstName: "",
-      lastName: ""
+      lastName: "",
+      showMe: false,
     }
   }
 
   onClickButton = () => {
-    this.setState({ firstName: "Aman", lastName: "Chaudhary" })
+    this.setState({...this.state, showMe:true})
   }
 
   onChange = (e) =>{
@@ -42,7 +43,7 @@ class App extends React.Component {
               <button type="submit" >Submit</button>
             </div>
           </div>
-          <Header firstName={this.state.firstName} lastName={this.state.lastName}/>
+          {this.state.showMe && <Header firstName={this.state.firstName} lastName={this.state.lastName}/>}
         </header>
       </div>
     );
