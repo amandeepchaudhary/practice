@@ -11,7 +11,7 @@ class App extends React.Component {
       firstName: "",
       lastName: "",
       showMe: false,
-      lis: [],
+      lis: [],  /*ARRAY*/
     }
   }
   
@@ -36,6 +36,17 @@ class App extends React.Component {
 
   }
 
+  // a way to render elements by loop 
+  renderList= () => {
+    const arrayEle =[];
+    for(var i=0;i <= this.state.lis.length -1; i++){
+      const item = this.state.lis[i];
+      arrayEle.push(<div key={`div_${i}`}> <span>Id:{item.userId},</span> <span>Name:{item.userName}</span></div>);
+    }
+    return arrayEle;
+  }
+
+
   render() {
 
     return (
@@ -59,9 +70,10 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col md-6">
-              {this.state.lis && this.state.lis.map((item,index)=>{
+              {/* {this.state.lis && this.state.lis.map((item,index)=>{
                 return <div key={`div_${index}`}> <span>Id:{item.userId},</span> <span>Name:{item.userName}</span></div>
-              })}
+              })}This is a way to add userid and userName by mapping */}
+              {this.renderList()}
             </div>
           </div>
           {this.state.showMe && <Header firstName={this.state.firstName} lastName={this.state.lastName}/>}
