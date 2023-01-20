@@ -11,7 +11,7 @@ class App extends React.Component {
       firstName: "",
       lastName: "",
       showMe: false,
-      lis: [],  /*ARRAY*/
+      lis: [],  /*List*/
     }
   }
   
@@ -70,10 +70,10 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col md-6">
-              {/* {this.state.lis && this.state.lis.map((item,index)=>{
-                return <div key={`div_${index}`}> <span>Id:{item.userId},</span> <span>Name:{item.userName}</span></div>
-              })}This is a way to add userid and userName by mapping */}
-              {this.renderList()}
+              {this.state.lis && this.state.lis.map((item,index)=>{
+                return <div className={this.state.showMe?'color-text':''} style={{height:'60px', width:'100px'}} key={`div_${index}`}> <span>Id:{item.userId},</span> <span>Name:{item.userName}</span></div>
+              })}{/*This is a way to add userid and userName by mapping*/}
+              {/* {this.renderList()} */}
             </div>
           </div>
           {this.state.showMe && <Header firstName={this.state.firstName} lastName={this.state.lastName}/>}
