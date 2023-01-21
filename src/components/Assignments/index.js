@@ -28,7 +28,10 @@ export default function Assignment(){
         set.address = addressComponent.current.value;
         setValue(set);
         if(set.address && set.firstName && set.lastName && set.rollNumber){
-            setOk(!ok)
+            setOk(true)
+            // `First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`
+        }else{
+            setOk(false)
         }
     }
 
@@ -64,10 +67,10 @@ export default function Assignment(){
                 <button type="submit" onClick={(e)=>setValues(e)}> Submit</button>
                 <br />
                     {/* {ok===true && value.firstName. && value.lastName && value.address && value.rollNumber? `First Name:${value.firstName} Last Name:${value.lastName} Roll Number:${value.rollNumber} Address:${value.address}`:"Error: Give all values"} */}
-                <div>
+                
 
-                    {ok===true?`First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`:ok}
-                </div>
+                {ok===true?`First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`:'Sorry'}
+                
                 
 
             </div>
