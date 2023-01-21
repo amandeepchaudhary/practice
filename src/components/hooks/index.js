@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 
 export default function HookTest (){
