@@ -3,15 +3,15 @@ import './App.css';
 import React from 'react';
 // import Header from './components/header';
 import HookTest from './components/hooks';
-import Assignment from './components/Assignments';
+// import Assignment from './components/Assignments';
 
 
 
 export default function App() {
   return (
     <div>
-      {/* <HookTest/> */}
-      <Assignment/>
+      <HookTest/>
+      {/* <Assignment/> */}
     </div>
   )
 }

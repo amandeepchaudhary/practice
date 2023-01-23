@@ -14,11 +14,11 @@ export default function HookTest (){
     },[user]);  //in [] we have the depedency of the State in it which have the object in it, if we have many object state then we use the class 
 
     const update = (e) => {
-    //     const username = user;
-    //     username[e.target.name] = e.target.value;  //Not rendering even after we are typing on the server it is not showing itself with the typing because we have given an object i.e.,{firstName:"", lastName:""} in useState of user, this will work if we give string that is a variable in usestate i.e., useState(""), If we want to use rendering when we give the object in useState then we have to use useEffect().
+        const username = { ...user };
+        username[e.target.name] = e.target.value;  //Not rendering even after we are typing on the server it is not showing itself with the typing because we have given an object i.e.,{firstName:"", lastName:""} in useState of user, this will work if we give string that is a variable in usestate i.e., useState(""), If we want to use rendering when we give the object in useState then we have to use useEffect().
 
         // console.log(username)
-        // setUser(username);
+        setUser(username);
         //Also written as
         // setUser(e.target.value);
     }
