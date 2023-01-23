@@ -15,24 +15,35 @@ export default function Assignment(){
         setCount(con)
     }
 
+    const update = (event)=>{
+        const vl = { ...value };  //Real Time Update of state when having the objects in it, instead of "String".
+        vl[event.target.name] = event.target.value;
+        setValue(vl);
+    }
+
     const firstNameComponent = useRef();
     const lastNameComponent = useRef();
     const rollNumberComponent = useRef();
     const addressComponent = useRef();
 
     const setValues= () =>{
-        const set = value;
-        set.firstName = firstNameComponent.current.value;
-        set.lastName = lastNameComponent.current.value;
-        set.rollNumber = rollNumberComponent.current.value;
-        set.address = addressComponent.current.value;
-        setValue(set);
-        if(set.address && set.firstName && set.lastName && set.rollNumber){
-            setOk(true)
-            // `First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`
-        }else{
-            setOk(false)
+        if (value.firstName && value.lastName && value.rollNumber && value.address){
+
+            setOk(true);
         }
+
+        // const set = value;
+        // set.firstName = firstNameComponent.current.value;
+        // set.lastName = lastNameComponent.current.value;
+        // set.rollNumber = rollNumberComponent.current.value;
+        // set.address = addressComponent.current.value;
+        // setValue(set);
+        // if(set.address && set.firstName && set.lastName && set.rollNumber){
+        //     setOk(true)
+        //     // `First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`
+        // }else{
+        //     setOk(false)
+        // }
     }
 
 
@@ -53,24 +64,26 @@ export default function Assignment(){
                 <br />
                 <br />
                 {`First Name: `}
-                <input type="text" ref={firstNameComponent} placeholder="Enter First Name" />
+                <input type="text" name="firstName" ref={firstNameComponent} onChange={(e) => update(e)} placeholder="Enter First Name" />
                 <br />
                 {`Last Name: `}
-                <input type="text" ref={lastNameComponent} placeholder="Enter Last Name" />
+                <input type="text" name="lastName" onChange={(e) => update(e)} ref={lastNameComponent} placeholder="Enter Last Name" />
                 <br />
                 {`Roll Number: `}
-                <input type="text" ref={rollNumberComponent} placeholder="Enter Roll Number" />
+                <input type="text" name="rollNumber" onChange={(e) => update(e)} ref={rollNumberComponent} placeholder="Enter Roll Number" />
                 <br />
                 {`Address: `}
-                <input type="text" ref={addressComponent} placeholder="Enter Address" />
+                <input type="text" name="address" onChange={(e) => update(e)} ref={addressComponent} placeholder="Enter Address" />
                 <br />
                 <button type="submit" onClick={(e)=>setValues(e)}> Submit</button>
                 <br />
                     {/* {ok===true && value.firstName. && value.lastName && value.address && value.rollNumber? `First Name:${value.firstName} Last Name:${value.lastName} Roll Number:${value.rollNumber} Address:${value.address}`:"Error: Give all values"} */}
                 
 
-                {ok===true?`First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`:'Sorry'}
+                {/* {ok===true?`First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`:'Sorry'}
+                 */}
                 
+                {ok?`First Name: ${value.firstName}, Last Name: ${value.lastName}, Roll Number: ${value.rollNumber}, Address: ${value.address}`:"Enter all the values."}
                 
 
             </div>
