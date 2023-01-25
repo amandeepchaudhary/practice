@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+// import { useContext } from 'react';
+// import { context } from '../../useContext/index';
+import Component1 from './component1';
+import Component2 from './component2';
 
-export default function HookTest (){
+
+export default function HookTest (props){
     const [user, setUser] = useState({ firstName: "", lastName: "" });
     const [showElement, setShowElement] = useState(false);
+    // const useMe = useContext(context);
     
 
     const firstNameComponent= useRef();
@@ -32,21 +37,25 @@ export default function HookTest (){
     }
 
     return (
-        <div>
+        // <useMe.Provider value={user}>
             <div>
-                {`First name:`}
-                <input ref={firstNameComponent} type="text" name="firstName" onChange={(e) => update(e)} /><br />
-                {`Last name:`}
-                <input ref={lastNameComponent} type="text" name="lastName" onChange={(e) => update(e)} />
-                <br />
-                {`Last entered values are below>>>`}
-                <br />
-                {`First name: ${user.firstName}`}
-                <br />
-                {`Last name: ${user.lastName}`}
+                <div>
+                    {`First name:`}
+                    <input ref={firstNameComponent} type="text" name="firstName" onChange={(e) => update(e)} /><br />
+                    {`Last name:`}
+                    <input ref={lastNameComponent} type="text" name="lastName" onChange={(e) => update(e)} />
+                    <br />
+                    {`Last entered values are below>>>`}
+                    <br />
+                    {`First name: ${user.firstName}`}
+                    <br />
+                    {`Last name: ${user.lastName}`}
+                </div>
+                <button type="submit" onClick={(e) => onClickChange(e)}>Set the Value for User</button>
+                {showElement && <div>React Show element</div>}
+                <Component1 firstName={user.firstName}/> {/* Provider didn't work so i have to use the props to pass the properties of the component from one to another*/}
+                <Component2 lastName={user.lastName}/>
             </div>
-            <button type="submit" onClick={(e) => onClickChange(e)}>Set the Value for User</button>
-            {showElement && <div>React Show element</div>}
-            
-        </div>)
+        // </useMe.Provider>  
+    )
 }
