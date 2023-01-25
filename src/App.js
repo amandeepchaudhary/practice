@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 // import Header from './components/header';
 import HookTest from './components/hooks';
+import Memo from './components/hooks/Memo';
 // import Assignment from './components/Assignments';
 
 
@@ -12,6 +13,9 @@ export default function App() {
     <div>
       <HookTest/>
       {/* <Assignment/> */}
+      <div>
+        <Memo/>
+      </div>
     </div>
   )
 }
