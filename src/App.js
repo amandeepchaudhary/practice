@@ -2,22 +2,22 @@
 import './App.css';
 import React from 'react';
 // import Header from './components/header';
-import HookTest from './components/hooks';
-import Memo from './components/hooks/Memo';
-import Assignment from './components/Assignments';
-import Palindrome from './components/Assignments/palindrome';
+// import HookTest from './components/hooks';
+// import Memo from './components/hooks/Memo';
+// import Assignment from './components/Assignments';
+import Palindrome from './components/Assignments/Palindrome';
 
 
 
 export default function App() {
   return (
     <div>
-      <HookTest/>
-      <Assignment/>
+      {/* <HookTest/> */}
+      {/* <Assignment/> */}
       <Palindrome/>
-      <div>
+      {/* <div>
         <Memo/>
-      </div>
+      </div> */}
     </div>
   )
 }
