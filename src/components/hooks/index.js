@@ -19,17 +19,22 @@ export default function HookTest (props){
     },[user]);  //in [] we have the depedency of the State in it which have the object in it, if we have many object state then we use the class 
 
     const update = (e) => {
+        // console.log(user)
         const username = { ...user };
         username[e.target.name] = e.target.value;  //Not rendering even after we are typing on the server it is not showing itself with the typing because we have given an object i.e.,{firstName:"", lastName:""} in useState of user, this will work if we give string that is a variable in usestate i.e., useState(""), If we want to use rendering when we give the object in useState then we have to use useEffect().
-
         // console.log(username)
+        
         setUser(username);
+        // console.log(user)
+        
         //Also written as
         // setUser(e.target.value);
     }
+    // console.log(user)
 
     const onClickChange = () => {
-        setShowElement(!showElement);  //Toggle = true h false, false h toh true
+        setShowElement(true);  //Toggle = true h false, false h toh true
+        console.log()
         const username = user;
         username.firstName = firstNameComponent.current.value;
         username.lastName = lastNameComponent.current.value;
@@ -39,7 +44,7 @@ export default function HookTest (props){
     return (
         // <useMe.Provider value={user}>
             <div>
-                <div>
+                <div className='color-text'>
                     {`First name:`}
                     <input ref={firstNameComponent} type="text" name="firstName" onChange={(e) => update(e)} /><br />
                     {`Last name:`}

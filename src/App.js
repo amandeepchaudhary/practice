@@ -1,12 +1,17 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, { lazy } from 'react';
+import { BrowserRouter as Router,Routes,Route,Link } from 'react-router-dom';
 // import Header from './components/header';
 // import HookTest from './components/hooks';
 // import Memo from './components/hooks/Memo';
 // import Assignment from './components/Assignments';
-import Palindrome from './components/Assignments/Palindrome';
-
+// import Palindrome from './components/Assignments/Palindrome';
+import Login from './views/auth/login';
+import Register from './views/auth/register';
+import { Suspense } from 'react';
+// import Profile from './views/profile';
+const Profile = lazy(() => import("./views/profile"));
 
 
 export default function App() {
@@ -14,10 +19,24 @@ export default function App() {
     <div>
       {/* <HookTest/> */}
       {/* <Assignment/> */}
-      <Palindrome/>
+      {/* <Palindrome/> */}
       {/* <div>
         <Memo/>
       </div> */}
+      <Router>
+        <div>
+          <Link to={'/'}>Login</Link><br/>
+          <Link to={'/register'}>Register</Link><br/>
+          <Link to={'/profile'}>Profile</Link>
+        </div>
+        <Suspense fallback={<div>Please wait...</div>}></Suspense>
+        <Routes>
+          <Route path='/' element={<Login></Login>} />
+          <Route path='/profile' element={<Profile></Profile>} />
+          <Route path='/register' element={<Register></Register>} />
+          <Route path ='*' element={<Login/>} />
+        </Routes>
+      </Router>
     </div>
   )
 }
