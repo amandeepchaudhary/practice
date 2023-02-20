@@ -11,6 +11,7 @@ import Login from './views/auth/login';
 import Register from './views/auth/register';
 import { Suspense } from 'react';
 // import Profile from './views/profile';
+const Auth = lazy(() => import("./components/layout/auth.js"));
 const Profile = lazy(() => import("./views/profile"));
 
 
@@ -25,17 +26,26 @@ export default function App() {
       </div> */}
       <Router>
         <div>
-          <Link to={'/'}>Login</Link><br/>
-          <Link to={'/register'}>Register</Link><br/>
-          <Link to={'/profile'}>Profile</Link>
+          <Link to={'/auth'}>For Login, Register, Profile!!!!</Link><br/>
+          {/* <Link to={'/register'}>Register</Link><br/>
+          <Link to={'/profile'}>Profile</Link> */}
         </div>
-        <Suspense fallback={<div>Please wait...</div>}></Suspense>
+        <Suspense fallback={<div>Please wait...</div>}>
         <Routes>
+          <Route path='/auth' element={<Auth></Auth>}>
+            <Route path='/auth/login' element = {<Login></Login>}/>
+            <Route path='/auth/register' element = {<Register></Register>}/>
+            <Route path='/auth/profile' element = {<Profile></Profile>}/>
+          </Route>
+        
           <Route path='/' element={<Login></Login>} />
           <Route path='/profile' element={<Profile></Profile>} />
-          <Route path='/register' element={<Register></Register>} />
+          <Route path='/register' element={<Register></Register>} /> 
+          
           <Route path ='*' element={<Login/>} />
         </Routes>
+        </Suspense>
+        <Link to={'/'}>Home</Link>
       </Router>
     </div>
   )
