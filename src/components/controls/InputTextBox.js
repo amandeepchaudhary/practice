@@ -17,7 +17,7 @@ const InputTextBox = (props) =>{
     }
     return (
         <>
-         <input type={props.type} id={props.id} placeholder={props.placeHolder} name={props.name} onChange={(event) => onChangeText(event)} className={ `${props.css}${props.isValidate()}` }/>
+         <input type={props.type} id={props.id} placeholder={props.placeHolder} name={props.name} onChangeEvent={(event) => onChangeText(event)} className={ `${props.css} ${isValidate()}` }/>
          {props.isNotValid && props.isRequired && <UncontrolledTooltip placement="top" target={props.id}>{props.errorMessage}</UncontrolledTooltip>}
         </>
     )
