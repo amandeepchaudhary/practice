@@ -11,6 +11,7 @@ import Login from './views/auth/login';
 import Register from './views/auth/register';
 import { Suspense } from 'react';
 // import Profile from './views/profile';
+import FindDuplicate from './components/Assignments/findDuplicate';
 const Auth = lazy(() => import("./components/layout/auth.js"));
 const Profile = lazy(() => import("./views/profile"));
 
@@ -46,6 +47,7 @@ export default function App() {
         </Routes>
         </Suspense>
         <Link to={'/'}>Home</Link>
+          <FindDuplicate/>
       </Router>
     </div>
   )
