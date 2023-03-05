@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { lazy } from 'react';
-import { BrowserRouter as Router,Routes,Route,Link } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route,Link, Navigate } from 'react-router-dom';
 // import Header from './components/header';
 // import HookTest from './components/hooks';
 // import Memo from './components/hooks/Memo';
@@ -42,7 +42,7 @@ export default function App() {
           <Route path='/profile' element={<Profile></Profile>} />
           <Route path='/register' element={<Register></Register>} /> 
           
-          <Route path ='*' element={<Login/>} />
+          <Route path ='*' element={<Navigate to={'/'}/>} />
         </Routes>
         </Suspense>
         <Link to={'/'}>Home</Link>
